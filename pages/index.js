@@ -1,8 +1,15 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import API from '../config/API';
+import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export async function getServerSideProps(context) {
+  const response = await API.getAcara;
+
+  return { props: { response: response.data } };
+}
+
+export default function Home({ response }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -65,5 +72,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
+  );
 }
