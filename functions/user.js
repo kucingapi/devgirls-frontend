@@ -1,7 +1,7 @@
 import { useMemo, useReducer, useState } from 'react';
 
 const reducer = (state, action) => {
-  switch (action.type) {
+  switch (action) {
     case 'logout':
       return 'logout';
     case 'login':

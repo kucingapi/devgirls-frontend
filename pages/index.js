@@ -4,13 +4,14 @@ import { useContext, useReducer } from 'react';
 import { API } from '../config/API';
 import { UserContext } from '../config/context/userContext';
 import styles from '../styles/Home.module.css';
+import Button from '@mui/material/Button';
 
-export default function Home({ response }) {
-  const { user, dispatch } = useContext(UserContext);
+export default function Home() {
   return (
     <div className={styles.container}>
-      <h1>{user}</h1>
-      <button onClick={() => {dispatch({type: 'logout'})}}>Logout</button>
+      <Button variant="contained" color="secondary">
+        Test
+      </Button>
     </div>
   );
 }
