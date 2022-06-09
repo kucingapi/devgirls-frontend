@@ -2,6 +2,6 @@ import { Get } from './Get';
 
 const getAcara = () => Get('acara', {});
 
-export default API = {
+export const API = {
   getAcara,
 };
