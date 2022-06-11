@@ -7,5 +7,8 @@ import axiosDevgirls from './axios';
  * @param {String} params the params ?=
  * @returns {Promise}
  */
-export const Get = (path, headers, params) =>
-  axiosDevgirls.get(`${path}`, { headers, params });
+export const Get = (path, headers, queryParams, body) => {
+  const params = new URLSearchParams(queryParams);
+  return axiosDevgirls.get(`${path}?${params}`, { ...body }, { headers });
+}
+

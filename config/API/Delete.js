@@ -8,5 +8,8 @@ import axiosDevgirls from './axios';
  * @param {String} body to put body in request
  * @returns {Promise}
  */
-export const Delete = (path, headers, params, body) =>
-  axiosDevgirls.delete(`${path}`, { headers, params, data: body });
+export const Delete = (path, headers, queryParams, body) => {
+  const params = new URLSearchParams(queryParams);
+  return axiosDevgirls.delete(`${path}?${params}`, { ...body }, { headers });
+}
+

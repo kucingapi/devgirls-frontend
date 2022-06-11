@@ -8,5 +8,7 @@ import axiosDevgirls from './axios';
  * @param {String} body to put body in request
  * @returns {Promise}
  */
-export const Post = (path, headers, params, body) =>
-  axiosDevgirls.post(`${path}`, { headers, params, data: body });
+export const Post = (path, headers, queryParams, body) => {
+  const params = new URLSearchParams(queryParams);
+  return axiosDevgirls.post(`${path}?${params}`, { ...body }, { headers });
+}

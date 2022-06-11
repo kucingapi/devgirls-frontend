@@ -8,5 +8,8 @@ import axiosDevgirls from './axios';
  * @param {String} body to put body in request
  * @returns {Promise}
  */
-export const Put = (path, headers, params, body) =>
-  axiosDevgirls.put(`${path}`, { headers, params, data: body });
+export const Put = (path, headers, queryParams, body) => {
+  const params = new URLSearchParams(queryParams);
+  return axiosDevgirls.put(`${path}?${params}`, { ...body }, { headers });
+}
+
